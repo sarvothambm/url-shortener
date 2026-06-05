@@ -199,21 +199,21 @@ function UrlShortenerContent() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans overflow-x-hidden">
-      {/* Background Radial Glow Effects */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[150px] pointer-events-none" />
-      <div className="absolute top-[30%] right-[20%] w-[350px] h-[350px] rounded-full bg-pink-600/5 blur-[120px] pointer-events-none" />
+    <div className="relative min-h-screen bg-black text-zinc-100 flex flex-col font-sans overflow-x-hidden">
+      {/* Background Radial Glow Effects - Cyber Red Theme */}
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-red-900/10 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-rose-950/10 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[20%] w-[350px] h-[350px] rounded-full bg-red-950/5 blur-[120px] pointer-events-none" />
 
       {/* Navigation Header */}
-      <header className="border-b border-slate-900 bg-slate-950/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+      <header className="border-b border-zinc-900 bg-black/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-900/30">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-700 to-rose-600 flex items-center justify-center shadow-lg shadow-red-950/40">
               <Link2 className="w-5 h-5 text-white" />
             </div>
-            <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-              Link<span className="text-purple-500">Vibe</span>
+            <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+              Link<span className="text-red-500 font-black">Vibe</span>
             </span>
           </div>
 
@@ -221,13 +221,13 @@ function UrlShortenerContent() {
             <a 
               href="https://github.com" 
               target="_blank" 
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors duration-200"
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200"
             >
               Docs
             </a>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-800" />
-            <span className="text-xs px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-medium flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-800" />
+            <span className="text-xs px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 font-medium flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
               v1.0 (Stable)
             </span>
           </div>
@@ -241,17 +241,31 @@ function UrlShortenerContent() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur text-xs font-semibold text-purple-400 shadow-inner"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 backdrop-blur text-xs font-semibold text-red-400 shadow-inner"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-red-500 animate-pulse" />
             <span>Simplify your links & Track Analytics</span>
           </motion.div>
           
+          {/* Mobile-Friendly Static Heading (avoids overlapping and touch-hover bugs) */}
           <motion.h1 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="group text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.2] flex flex-col items-center cursor-default select-none"
+            className="md:hidden text-3xl sm:text-4xl font-black tracking-tight leading-[1.2] text-center flex flex-col gap-2"
+          >
+            <span className="text-white">Shorten links.</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-red-400">
+              Measure click rates.
+            </span>
+          </motion.h1>
+
+          {/* Desktop-Only Premium Rolling Hover Heading */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="hidden md:flex group text-5xl md:text-6xl font-black tracking-tight leading-[1.2] flex-col items-center cursor-default select-none"
           >
             {/* First Line Wrapper */}
             <div className="h-[1.2em] overflow-hidden relative flex flex-col items-center">
@@ -259,7 +273,7 @@ function UrlShortenerContent() {
                 <span className="h-[1.2em] flex items-center justify-center text-white">
                   Shorten links.
                 </span>
-                <span className="h-[1.2em] flex items-center justify-center text-purple-400">
+                <span className="h-[1.2em] flex items-center justify-center text-red-500">
                   Compress URLs.
                 </span>
               </div>
@@ -268,21 +282,21 @@ function UrlShortenerContent() {
             {/* Second Line Wrapper */}
             <div className="h-[1.2em] overflow-hidden relative flex flex-col items-center">
               <div className="transition-transform duration-500 ease-out transform group-hover:-translate-y-1/2 flex flex-col items-center">
-                <span className="h-[1.2em] flex items-center justify-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
+                <span className="h-[1.2em] flex items-center justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-red-400">
                   Measure click rates.
                 </span>
-                <span className="h-[1.2em] flex items-center justify-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400">
+                <span className="h-[1.2em] flex items-center justify-center bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-rose-500 to-red-500">
                   Track analytics.
                 </span>
               </div>
             </div>
-          </motion.h1>
+          </motion.div>
 
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed"
+            className="text-zinc-400 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed"
           >
             An open-source link management tool designed for modern creators. Generate elegant, 
             high-speed URL aliases and track traffic statistics in real-time.
@@ -296,19 +310,19 @@ function UrlShortenerContent() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="max-w-3xl w-full mx-auto"
         >
-          <div className="p-1 rounded-2xl bg-gradient-to-r from-purple-600/30 via-indigo-600/30 to-pink-600/30 shadow-2xl shadow-purple-950/20 backdrop-blur-md">
+          <div className="p-1 rounded-2xl bg-gradient-to-r from-red-700/30 via-rose-600/25 to-red-950/30 shadow-2xl shadow-red-950/25 backdrop-blur-md">
             <form 
               onSubmit={handleShorten}
-              className="bg-slate-900/90 rounded-[14px] p-4 flex flex-col md:flex-row gap-3 items-center border border-slate-800/80"
+              className="bg-zinc-900/90 rounded-[14px] p-4 flex flex-col md:flex-row gap-3 items-center border border-zinc-800/80"
             >
               <div className="relative flex-1 w-full">
-                <Link2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                <Link2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500" />
                 <input
                   type="url"
                   placeholder="Paste your long link here (e.g., https://very-long-url.com/path)..."
                   value={originalUrl}
                   onChange={(e) => setOriginalUrl(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-slate-950/50 hover:bg-slate-950/80 focus:bg-slate-950 border border-slate-800 focus:border-purple-500/80 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none transition-all duration-300 font-medium"
+                  className="w-full pl-12 pr-4 py-3 bg-black/50 hover:bg-black/85 focus:bg-black border border-zinc-800 focus:border-red-500/80 rounded-xl text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all duration-300 font-medium"
                 />
               </div>
               <motion.button
@@ -316,7 +330,7 @@ function UrlShortenerContent() {
                 disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-purple-900/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group transition-all duration-300 cursor-pointer"
+                className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold rounded-xl shadow-lg shadow-red-900/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group transition-all duration-300 cursor-pointer"
               >
                 {isLoading ? (
                   <>
@@ -339,16 +353,16 @@ function UrlShortenerContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="w-full bg-slate-900/40 border border-slate-900 rounded-2xl p-6 backdrop-blur-md shadow-lg"
+          className="w-full bg-zinc-950/40 border border-zinc-900 rounded-2xl p-6 backdrop-blur-md shadow-lg"
         >
           {/* Header Dashboard Controls */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-900 pb-5 mb-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-900 pb-5 mb-6">
             <div className="flex flex-col gap-1">
               <h2 className="text-xl font-bold flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-purple-400" />
+                <BarChart3 className="w-5 h-5 text-red-400" />
                 Analytics Dashboard
               </h2>
-              <p className="text-slate-400 text-xs">
+              <p className="text-zinc-400 text-xs">
                 Real-time dashboard tracking visits, click activity, and redirect routes.
               </p>
             </div>
@@ -357,13 +371,13 @@ function UrlShortenerContent() {
             <div className="flex items-center flex-wrap gap-2.5 w-full sm:w-auto">
               {/* Search */}
               <div className="relative w-full sm:w-48">
-                <Search className="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Filter links..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-8 pr-3 py-1.5 bg-slate-950/60 border border-slate-800 focus:border-purple-500 rounded-lg text-xs focus:outline-none transition-all placeholder:text-slate-500"
+                  className="w-full pl-8 pr-3 py-1.5 bg-black/60 border border-zinc-800 focus:border-red-500 rounded-lg text-xs focus:outline-none transition-all placeholder:text-zinc-500"
                 />
               </div>
 
@@ -378,7 +392,7 @@ function UrlShortenerContent() {
                   }
                 }}
                 disabled={isSyncing}
-                className="p-2 bg-slate-950 border border-slate-800 rounded-lg text-slate-400 hover:text-white disabled:opacity-50 hover:bg-slate-900/60 transition-all flex items-center justify-center cursor-pointer"
+                className="p-2 bg-black border border-zinc-800 rounded-lg text-zinc-400 hover:text-white disabled:opacity-50 hover:bg-zinc-900/60 transition-all flex items-center justify-center cursor-pointer"
                 title="Refresh Stats"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
@@ -392,8 +406,8 @@ function UrlShortenerContent() {
               onClick={() => setActiveTab('mine')}
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer ${
                 activeTab === 'mine' 
-                  ? 'bg-purple-600 text-white shadow-md shadow-purple-900/20' 
-                  : 'bg-slate-950 border border-slate-900 text-slate-400 hover:bg-slate-900/80 hover:text-white'
+                  ? 'bg-red-600 text-white shadow-md shadow-red-900/20' 
+                  : 'bg-black border border-zinc-900 text-zinc-400 hover:bg-zinc-900/80 hover:text-white'
               }`}
             >
               My Links ({history.length})
@@ -402,8 +416,8 @@ function UrlShortenerContent() {
               onClick={() => setActiveTab('recent')}
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer ${
                 activeTab === 'recent' 
-                  ? 'bg-purple-600 text-white shadow-md shadow-purple-900/20' 
-                  : 'bg-slate-950 border border-slate-900 text-slate-400 hover:bg-slate-900/80 hover:text-white'
+                  ? 'bg-red-600 text-white shadow-md shadow-red-900/20' 
+                  : 'bg-black border border-zinc-900 text-zinc-400 hover:bg-zinc-900/80 hover:text-white'
               }`}
             >
               Recent Public Links ({recentGlobal.length})
@@ -418,11 +432,11 @@ function UrlShortenerContent() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex flex-col items-center justify-center py-12 text-slate-500 border border-dashed border-slate-900 rounded-xl"
+                  className="flex flex-col items-center justify-center py-12 text-zinc-500 border border-dashed border-zinc-900 rounded-xl"
                 >
-                  <Link2 className="w-8 h-8 text-slate-700 mb-2" />
+                  <Link2 className="w-8 h-8 text-zinc-700 mb-2" />
                   <p className="text-sm font-medium">No shortened URLs to display.</p>
-                  <p className="text-xs text-slate-600 mt-1">
+                  <p className="text-xs text-zinc-500 mt-1">
                     {searchTerm ? "Try searching for a different keyword." : "Shorten a URL above to populate this list."}
                   </p>
                 </motion.div>
@@ -443,15 +457,15 @@ function UrlShortenerContent() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.3 }}
-                        className="group flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-slate-950/60 border border-slate-900 hover:border-slate-800 rounded-xl hover:shadow-lg hover:shadow-purple-900/5 hover:-translate-y-[2px] transition-all duration-300 gap-4"
+                        className="group flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-black/60 border border-zinc-900 hover:border-zinc-800 hover:shadow-lg hover:shadow-red-950/5 hover:-translate-y-[2px] transition-all duration-300 gap-4"
                       >
                         {/* Left Side Info */}
                         <div className="flex-1 min-w-0 space-y-1.5 w-full">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs px-2 py-0.5 rounded bg-purple-950/80 text-purple-400 border border-purple-900/30 font-semibold tracking-wider uppercase">
+                            <span className="text-xs px-2 py-0.5 rounded bg-red-950/80 text-red-400 border border-red-900/30 font-semibold tracking-wider uppercase">
                               {item.shortCode}
                             </span>
-                            <span className="text-[10px] text-slate-500">
+                            <span className="text-[10px] text-zinc-500">
                               {new Date(item.createdAt).toLocaleDateString(undefined, {
                                 month: 'short',
                                 day: 'numeric',
@@ -461,31 +475,31 @@ function UrlShortenerContent() {
                             </span>
                           </div>
 
-                          <div className="font-semibold text-purple-400 text-sm md:text-base break-all flex items-center gap-1.5">
+                          <div className="font-semibold text-red-400 text-sm md:text-base break-all flex items-center gap-1.5">
                             <a 
                               href={shortLink} 
                               target="_blank" 
                               rel="noreferrer"
-                              className="hover:underline flex items-center gap-1 hover:text-purple-300 transition-all"
+                              className="hover:underline flex items-center gap-1 hover:text-red-300 transition-all"
                             >
                               {shortLink}
-                              <ExternalLink className="w-3 h-3 text-slate-500" />
+                              <ExternalLink className="w-3 h-3 text-zinc-500" />
                             </a>
                           </div>
 
-                          <div className="text-slate-400 text-xs break-all" title={item.originalUrl}>
-                            <span className="text-slate-600 font-medium mr-1">Target:</span>
+                          <div className="text-zinc-400 text-xs break-all" title={item.originalUrl}>
+                            <span className="text-zinc-500 font-medium mr-1">Target:</span>
                             {truncateUrl(item.originalUrl)}
                           </div>
                         </div>
 
                         {/* Right Side Controls & Clicks */}
-                        <div className="flex items-center justify-between md:justify-end gap-5 w-full md:w-auto border-t md:border-t-0 border-slate-900 pt-3.5 md:pt-0">
+                        <div className="flex items-center justify-between md:justify-end gap-5 w-full md:w-auto border-t md:border-t-0 border-zinc-900 pt-3.5 md:pt-0">
                           {/* Clicks counter */}
-                          <div className="flex items-center gap-1.5 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800/80 min-w-20 justify-center">
-                            <BarChart3 className="w-3.5 h-3.5 text-indigo-400" />
-                            <span className="text-xs font-bold text-slate-200">{item.clicks}</span>
-                            <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider ml-0.5">
+                          <div className="flex items-center gap-1.5 bg-zinc-900 px-3 py-1.5 rounded-lg border border-zinc-800 min-w-20 justify-center">
+                            <BarChart3 className="w-3.5 h-3.5 text-red-400" />
+                            <span className="text-xs font-bold text-zinc-200">{item.clicks}</span>
+                            <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider ml-0.5">
                               {item.clicks === 1 ? 'click' : 'clicks'}
                             </span>
                           </div>
@@ -494,7 +508,7 @@ function UrlShortenerContent() {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => handleCopy(item.shortCode)}
-                              className="p-2 bg-slate-900 hover:bg-purple-600 border border-slate-800 hover:border-purple-500 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
+                              className="p-2 bg-zinc-900 hover:bg-red-600 border border-zinc-800 hover:border-red-500 rounded-lg text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
                               title="Copy Short Link"
                             >
                               {copiedCode === item.shortCode ? (
@@ -507,7 +521,7 @@ function UrlShortenerContent() {
                             {activeTab === 'mine' && (
                               <button
                                 onClick={() => handleDelete(item.shortCode)}
-                                className="p-2 bg-slate-900 hover:bg-red-950/80 border border-slate-800 hover:border-red-900/60 rounded-lg text-slate-400 hover:text-red-400 transition-all cursor-pointer flex items-center justify-center"
+                                className="p-2 bg-zinc-900 hover:bg-red-950/80 border border-zinc-800 hover:border-red-900/60 rounded-lg text-zinc-400 hover:text-red-400 transition-all cursor-pointer flex items-center justify-center"
                                 title="Remove Link"
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -526,7 +540,7 @@ function UrlShortenerContent() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-600 mt-auto">
+      <footer className="border-t border-zinc-900 bg-black py-8 text-center text-xs text-zinc-500 mt-auto">
         <p className="mb-2">LinkVibe is powered by Next.js, Tailwind CSS, MongoDB, and Mongoose.</p>
         <p>&copy; {new Date().getFullYear()} LinkVibe Corp. All rights reserved.</p>
       </footer>
@@ -537,13 +551,13 @@ function UrlShortenerContent() {
 export default function Home() {
   return (
     <Suspense fallback={
-      <div className="relative min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans items-center justify-center">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-[150px] pointer-events-none" />
+      <div className="relative min-h-screen bg-black text-zinc-100 flex flex-col font-sans items-center justify-center">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-red-900/10 blur-[150px] pointer-events-none" />
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center animate-pulse shadow-lg shadow-purple-900/30">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-red-700 to-rose-600 flex items-center justify-center animate-pulse shadow-lg shadow-red-950/40">
             <Link2 className="w-6 h-6 text-white" />
           </div>
-          <p className="text-slate-400 text-sm font-semibold animate-pulse">Loading LinkVibe Dashboard...</p>
+          <p className="text-zinc-400 text-sm font-semibold animate-pulse">Loading LinkVibe Dashboard...</p>
         </div>
       </div>
     }>
