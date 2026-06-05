@@ -2,7 +2,7 @@
 
 LinkVibe is an open-source, full-stack URL management tool designed for modern creators. It allows users to generate elegant, high-speed URL aliases and track real-time traffic statistics through a beautiful dark-mode interface.
 
-![LinkVibe Dashboard Preview](/dashboard-preview.png) 
+![LinkVibe Dashboard Preview](![LinkVibe Dashboard Preview](public/dashboard-preview.png)) 
 
 ## ✨ Key Features
 
